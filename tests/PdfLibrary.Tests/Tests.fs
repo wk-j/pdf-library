@@ -14,5 +14,6 @@ let ``My test`` () =
     | true ->
         printfn "%A" file
         Assert.True(File.Exists file)
+        File.Delete(file)
     | false ->
         Assert.True(false)
