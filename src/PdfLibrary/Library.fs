@@ -45,7 +45,6 @@ type PdfSpliter() =
                 output.AddPage(page) |> ignore
             else
                 let index = i - start
-                printfn "%i" index
 
                 if index < replaceByReader.PageCount then
                     let add = replaceByReader.Pages.[index]
