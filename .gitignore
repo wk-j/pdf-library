@@ -20,3 +20,4 @@ publish
 
 target
 BenchmarkDotNet.Artifacts
+.fake

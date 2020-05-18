@@ -5,15 +5,28 @@ open Xunit
 open PdfLibrary
 open System.IO
 
+// [<Fact>]
+// let ``My test`` () =
+//     let spliter = PdfSpliter()
+//     let (ok, file) = spliter.TakePages("../../../../../resource/eng.pdf", 0,4)
+//     match ok with
+//     | true ->
+//         printfn "%A" file
+//         Assert.True(File.Exists file)
+
+//         File.Copy(file, "../../../../../resource/output/take.pdf")
+
+//         File.Delete(file)
+//     | false ->
+//         Assert.True(false)
+
 
 [<Fact>]
-let ``My test`` () =
+let ``Replace`` () =
     let spliter = PdfSpliter()
-    let (ok, file) = spliter.TakePages("../../../../../resource/eng.pdf", 0,4)
-    match ok with
-    | true ->
-        printfn "%A" file
-        Assert.True(File.Exists file)
-        File.Delete(file)
-    | false ->
-        Assert.True(false)
+    let org = "../../../../../resource/eng.pdf"
+    let add = "../../../../../resource/output/take.pdf"
+
+    let (ok, out) = spliter.ReplacePage(org, add, 0)
+
+    out |> printfn "%s"
