@@ -4,6 +4,10 @@ open PdfSharp.Pdf
 open System.IO
 open System
 
+type PdfUtility() =
+    static member GetNumberOfPage(filePath: string) =
+        PdfSharp.Pdf.IO.PdfReader.Open(filePath, PdfSharp.Pdf.IO.PdfDocumentOpenMode.InformationOnly).PageCount
+
 type PdfSpliter() =
 
     do

@@ -22,11 +22,18 @@ open System.IO
 
 
 [<Fact>]
+let GetPages() =
+    let f = "../../../../../resource/eng.pdf"
+    let count = PdfUtility.GetNumberOfPage(f)
+    printfn "%A" count
+
+
+[<Fact>]
 let ``Replace`` () =
     let spliter = PdfSpliter()
     let org = "../../../../../resource/eng.pdf"
     let add = "../../../../../resource/output/take.pdf"
 
-    let (ok, out) = spliter.ReplacePage(org, add, 0)
+    let (ok, out) = spliter.ReplacePages(org, add, 0)
 
     out |> printfn "%s"
